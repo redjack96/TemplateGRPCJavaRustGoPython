@@ -1,5 +1,5 @@
-# Creare ed eseguire i progetti 
-# Go
+# HelloWorld nei 4 linguaggi
+## Go
 Entra nella cartella go/.
 Crea un modulo:
 ```console
@@ -21,7 +21,7 @@ func main() {
 ```console
 $ go run main.go
 ```
-# Java
+## Java
 Entra nella cartella java.
 In questo caso uso l'archetype "java-archetype" per generare immediatamente il progetto. Attenzione a non inserire '-' nei groupId o artifactId.
 
@@ -53,34 +53,33 @@ Per compilare e installare nella cartella .m2: (se invece vuoi solo creare il ja
 $ mvn clean install -DskipTests
 ```
 
-Per eseguire (-q acquieta Maven), su due terminali diversi:
+Per eseguire (-q acquieta Maven):
 ```console
-$ mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.server.JavaGrpcServer"
-$ mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient"
+$ mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.App"
 ```
 [Sconsigliato] se non usi dipendenze:
 
 ```console
-$ java -cp target/template_grpc-0.0.1-SNAPSHOT.jar com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient
+$ java -cp target/template_grpc-0.0.1-SNAPSHOT.jar com.giacomolorenzo.rossi.template_grpc.App
 ```
 
 Se non funziona:
 - assicurarsi che java -version sia la stessa versione di quella compilata indicata nel pom.xml
-# Python
-Crea un file main.py nella cartella python
+## Python
+Crea un file main.py nella cartella python/
 
 ```python
 print("Hello Python World")
 ```
+
 Nella cartella python/:
 
 ```console
 $ py main.py
 ```
-# Rust
-Nella cartella rust/
+## Rust
+Nella cartella rust/ digita i seguenti comandi uno dopo l'altro per creare ed eseguire il progetto:
 ```console
 $ cargo init
 $ cargo run
 ```
-Easy!
