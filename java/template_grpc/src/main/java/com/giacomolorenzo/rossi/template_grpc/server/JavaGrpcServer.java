@@ -1,6 +1,5 @@
 package com.giacomolorenzo.rossi.template_grpc.server;
 
-import com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.examples.helloworld.GreeterGrpc;
@@ -15,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 // Esegui con:
 // mvn verify
-// mvn exec:java -q -D"com.giacomolorenzo.rossi.template_grpc.GrpcServer"
+// mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.server.JavaGrpcServer"
 public class JavaGrpcServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(JavaGrpcServer.class);
     public static final int PORT = 50051;

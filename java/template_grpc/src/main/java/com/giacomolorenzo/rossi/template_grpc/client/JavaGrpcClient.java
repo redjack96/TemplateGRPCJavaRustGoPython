@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 // Se si esegue con maven, gli stub vengono compilati in file .class ma non vengono mostrati i file .java degli stub. Trovi i file generati in target/gerenrated-sources/protobuf/
 // Esegui con:
 // mvn verify
-// mvn exec:java -q -D"com.giacomolorenzo.rossi.template_grpc.GrpcClient" -D"exec.args"="giacomo localhost:50051"
+// mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient" -D"exec.args"="giacomo localhost:50051"
 public class JavaGrpcClient {
 	private static final Logger LOGGER = LoggerFactory.getLogger(JavaGrpcClient.class);
 

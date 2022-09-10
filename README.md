@@ -1,27 +1,15 @@
-# Creare ed eseguire i progetti 
-# Go
-Entra nella cartella go/.
-Crea un modulo:
+# Compilare e/o eseguire i progetti 
+## Go
+Entra nella cartella go/server/ ed esegui:
+```
 ```console
-$ go mod init template.grpc
+$ go run server.go
 ```
-Crea un file main.go:
-
-```go
-package main
-
-import "fmt"
-
-func main() {
-	fmt.Println("Hello Go World!")
-}
-
-```
-
+Entra nella cartella go/client/ ed esegui:
 ```console
-$ go run main.go
+$ go run client.go
 ```
-# Java
+## Java
 Entra nella cartella java.
 In questo caso uso l'archetype "java-archetype" per generare immediatamente il progetto. Attenzione a non inserire '-' nei groupId o artifactId.
 
@@ -47,10 +35,10 @@ Aggiungi il seguente plugin sul pom.xml:
 </plugin>
 ```
 
-Per compilare e installare nella cartella .m2: (se invece vuoi solo creare il jar, usa mvn clean package)
+Per compilare e generare il codice gRPC:
 
 ```console
-$ mvn clean install -DskipTests
+$ mvn clean verify
 ```
 
 Per eseguire (-q acquieta Maven), su due terminali diversi:
@@ -58,15 +46,10 @@ Per eseguire (-q acquieta Maven), su due terminali diversi:
 $ mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.server.JavaGrpcServer"
 $ mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient"
 ```
-[Sconsigliato] se non usi dipendenze:
-
-```console
-$ java -cp target/template_grpc-0.0.1-SNAPSHOT.jar com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient
-```
 
 Se non funziona:
 - assicurarsi che java -version sia la stessa versione di quella compilata indicata nel pom.xml
-# Python
+## Python
 Crea un file main.py nella cartella python
 
 ```python
@@ -77,10 +60,12 @@ Nella cartella python/:
 ```console
 $ py main.py
 ```
-# Rust
-Nella cartella rust/
+## Rust
+Per compilare ed eseguire, entra nella cartella rust/server/ ed esegui:
 ```console
-$ cargo init
 $ cargo run
 ```
-Easy!
+poi entra nella cartella rust/client/ ed esegui di nuovo:
+```console
+$ cargo run
+```
