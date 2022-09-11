@@ -10,37 +10,11 @@ Entra nella cartella go/client/ ed esegui:
 $ go run client.go
 ```
 ## Java
-Entra nella cartella java.
-In questo caso uso l'archetype "java-archetype" per generare immediatamente il progetto. Attenzione a non inserire '-' nei groupId o artifactId.
-
-```console
-$ mvn archetype:generate /
-    -DgroupId="com.giacomolorenzo.rossi"  /
-    -DartifactId="template_grpc" /
-    -DarchetypeGroupId="io.github.oliviercailloux" /
-    -DarchetypeArtifactId="java-archetype" /
-    -DinteractiveMode=false
-```
-
-Aggiungi il seguente plugin sul pom.xml:
-
-```markdown
-<plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>exec-maven-plugin</artifactId>
-    <version>1.2.1</version>
-    <configuration>
-        <mainClass>com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient</mainClass> <!-- Cambia qui se necessario -->
-    </configuration>
-</plugin>
-```
-
+Entra nella cartella java\template_grpc.
 Per compilare e generare il codice gRPC:
-
 ```console
 $ mvn clean verify
 ```
-
 Per eseguire (-q acquieta Maven), su due terminali diversi:
 ```console
 $ mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.server.JavaGrpcServer"

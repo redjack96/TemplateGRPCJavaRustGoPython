@@ -2,22 +2,22 @@
 syntax = "proto3";
 
 // package name for the buffer will be used later
-package hello;
+package helloworld;
 
 // service which can be executed
-service Say {
+service Greeter {
   // function which can be called
-  rpc Send (SayRequest) returns (SayResponse);
+  rpc SayHello (HelloRequest) returns (HelloReply);
 }
 
 // argument
-message SayRequest {
+message HelloRequest {
   // data type and position of data
   string name = 1;
 }
 
 // return value
-message SayResponse {
+message HelloReply {
   // data type and position of data
   string message = 1;
 }
