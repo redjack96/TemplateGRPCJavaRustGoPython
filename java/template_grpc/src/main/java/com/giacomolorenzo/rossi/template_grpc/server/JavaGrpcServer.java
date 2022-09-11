@@ -59,6 +59,7 @@ public class JavaGrpcServer {
     static class GreeterImpl extends GreeterGrpc.GreeterImplBase{
         @Override
         public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+            LOGGER.info("Java Received: {}", request.getName());
             HelloReply reply = HelloReply.newBuilder()
                     .setMessage("Hello %s".formatted(request.getName()))
                     .build();
