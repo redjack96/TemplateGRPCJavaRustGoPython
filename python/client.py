@@ -19,7 +19,7 @@ import helloworld_pb2_grpc
 # Installa i seguenti package
 # $ python -m pip install grpcio grpcio-tools
 # Dalla cartella radice (python/) Genera il codice con:
-# $ python -m grpc_tools.protoc -Iproto/ --python_out=. --grpc_python_out=. proto/helloworld.proto
+# $ python -m grpc_tools.protoc -Iproto/ --python_out=. --grpc_python_out=. proto/hello.proto
 
 def run():
     # la with evita di usare la channel.close()

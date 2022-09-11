@@ -40,7 +40,7 @@ func main() {
 	defer func(conn *grpc.ClientConn) {
 		err := conn.Close()
 		if err != nil {
-
+			log.Fatalf("cannot close connection: %v", err)
 		}
 	}(conn) // runs immediately this function (like in JavaScript). To be more precise, it runs the lambda function at the end of the main function.
 

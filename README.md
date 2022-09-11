@@ -61,11 +61,11 @@ Nella cartella python/:
 $ py main.py
 ```
 ## Rust
-Per compilare ed eseguire, entra nella cartella rust/server/ ed esegui:
+Per compilare ed eseguire, entra nella cartella rust ed esegui nel primo terminale (ci vuole un po' la prima volta):
 ```console
-$ cargo run
+$ cargo run --bin server
 ```
-poi entra nella cartella rust/client/ ed esegui di nuovo:
+poi in un altro terminale, sempre nella cartella rust:
 ```console
-$ cargo run
+$ cargo run --bin client
 ```
