@@ -1,16 +1,17 @@
 package com.giacomolorenzo.rossi.template_grpc.client;
 
+import com.giacomolorenzo.rossi.template_grpc.GreeterGrpc;
+import com.giacomolorenzo.rossi.template_grpc.HelloReply;
+import com.giacomolorenzo.rossi.template_grpc.HelloRequest;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
-import io.grpc.examples.helloworld.GreeterGrpc;
-import io.grpc.examples.helloworld.HelloReply;
-import io.grpc.examples.helloworld.HelloRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
+
 
 // Nota bene: inizialmente il codice degli stub non è presente, quindi IntelliJ mostra degli errori, ma possono essere eliminati dopo la compilazione... (importa se ti permette di farlo)
 // Se si esegue con maven, gli stub vengono compilati in file .class ma non vengono mostrati i file .java degli stub. Trovi i file generati in target/gerenrated-sources/protobuf/
@@ -18,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 // mvn verify
 // mvn exec:java -q -D"exec.mainClass"="com.giacomolorenzo.rossi.template_grpc.client.JavaGrpcClient" -D"exec.args"="giacomo localhost:50051"
 public class JavaGrpcClient {
-	private static final Logger LOGGER = LoggerFactory.getLogger(JavaGrpcClient.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(JavaGrpcClient.class.getSimpleName());
 
 	private final GreeterGrpc.GreeterBlockingStub blockingStub;
 
@@ -36,7 +37,7 @@ public class JavaGrpcClient {
 		HelloReply response;
 		try {
 			response = blockingStub.sayHello(request);
-			LOGGER.info("ooooooooooooooooo Greeting: {}", response.getMessage()); // like println!("Greeting: {}", response.get_message()) in Rust
+			LOGGER.info("Received: {}", response.getMessage()); // like println!("Greeting: {}", response.get_message()) in Rust
 		} catch (StatusRuntimeException e){
 			LOGGER.warn("xxxxxxxxxxxxxxxxx gRPC failed: {} xxxxxxxxxxxxxxxxx", e.getStatus());
 		}
@@ -49,7 +50,7 @@ public class JavaGrpcClient {
 	 * @param args 0: the name of the server; 1: the target server
 	 */
 	public static void main(String[] args) throws Exception{
-		String user = "world";
+		String user = "JavaClient";
 		String target = "localhost:50051"; //TODO crea un file di configurazione o una variabile d'ambiente.
 		if (args.length > 0 ){
 			if ("--help".equals(args[0])){

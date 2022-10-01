@@ -2,15 +2,19 @@ package com.giacomolorenzo.rossi.template_grpc.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import io.grpc.examples.helloworld.GreeterGrpc;
-import io.grpc.examples.helloworld.HelloReply;
-import io.grpc.examples.helloworld.HelloRequest;
+
+// Importante: Questi 3 import saranno riconosciuti solamente dopo il mvn verify
+import com.giacomolorenzo.rossi.template_grpc.GreeterGrpc;
+import com.giacomolorenzo.rossi.template_grpc.HelloReply;
+import com.giacomolorenzo.rossi.template_grpc.HelloRequest;
+
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
 
 // Esegui con:
 // mvn verify
@@ -26,7 +30,7 @@ public class JavaGrpcServer {
                .addService(new GreeterImpl())
                .build()
                .start();
-        LOGGER.info("Server started, listening on {}", PORT);
+        LOGGER.info("Server started, listening on %d".formatted(PORT));
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.err.println("*** shutting down gRPC server since JVM is shutting down");
             try {
@@ -59,9 +63,9 @@ public class JavaGrpcServer {
     static class GreeterImpl extends GreeterGrpc.GreeterImplBase{
         @Override
         public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
-            LOGGER.info("Java Received: {}", request.getName());
+            LOGGER.info("Java Received: %s".formatted(request.getName()));
             HelloReply reply = HelloReply.newBuilder()
-                    .setMessage("Hello %s".formatted(request.getName()))
+                    .setMessage("Hello from Java: %s".formatted(request.getName()))
                     .build();
             responseObserver.onNext(reply); // delivers the HelloReply message
             responseObserver.onCompleted(); // calls the onCompleted

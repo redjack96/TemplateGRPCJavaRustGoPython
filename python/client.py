@@ -2,6 +2,7 @@
 
 import logging
 import grpc
+# vorrei tanto metterli in una cartella generated, ma non si riesce a importarli. Devono stare nella stessa cartella di questo file!!!
 import helloworld_pb2
 import helloworld_pb2_grpc
 
