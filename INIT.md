@@ -37,7 +37,7 @@ $ source "$HOME/.sdkman/bin/sdkman-init.sh"
 Bisogna scrivere esattamente i numeri della versione per installare la jdk corretta.
 Ad esempio per installare jdk temurin 17 (attuale Long Term Support) con sdkman, prima trova la versione più attuale con:
 ```console
-$ sdk list
+$ sdk list java
 ```
 E poi installala (ricontrollare i numeri di versione):
 ``` console
@@ -109,7 +109,6 @@ Per installare Rust:
 
 ```console
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-$ rustup self install stable
 ```
 
 Nella cartella rust/ digita i seguenti comandi uno dopo l'altro per creare ed eseguire il progetto:
