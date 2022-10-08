@@ -7,11 +7,12 @@ Per scaricare protoc:
 ## Go
 Per Intellij: installa il plugin "Go".
 
-Prima bisogna scaricare le dipendenze. Entra nella cartella go ed esegui:
+Prima bisogna scaricare le dipendenze ed aggiungere variabili di ambiente. Entra nella cartella go ed esegui:
 ```console
 $ go get google.golang.org/grpc
 $ go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 $ go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
+$ export PATH="$PATH:$(go env GOPATH)/bin"
 ```
 Verranno installati 6 pacchetti.
 
