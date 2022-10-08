@@ -10,6 +10,8 @@ Per Intellij: installa il plugin "Go".
 Prima bisogna scaricare le dipendenze. Entra nella cartella go ed esegui:
 ```console
 $ go get google.golang.org/grpc
+$ go get -u google.golang.org/protobuf/cmd/protoc-gen-go
+$ go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
 ```
 Verranno installati 6 pacchetti.
 
@@ -17,11 +19,11 @@ Compila il file proto con protoc (dalla cartella go/):
 ``` consoele
 $ protoc --go_out .  --go-grpc_out . proto/hellogoworld.proto
 ```
-Entra nella cartella go/ ed esegui:
+Entra nella cartella go/server ed esegui:
 ```console
 $ go run server.go
 ```
-Entra nella cartella go/ ed esegui:
+Entra nella cartella go/client ed esegui:
 ```console
 $ go run client.go
 ```
